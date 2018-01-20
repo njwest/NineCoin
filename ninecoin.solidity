@@ -19,7 +19,7 @@ contract owned {
 
 interface tokenRecipient { function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData) public; }
 
-contract NineCoinToken {
+contract NineCoin {
     // Public variables of the token
     string public name;
     string public symbol;
@@ -35,7 +35,7 @@ contract NineCoinToken {
     /**
      *  Initial Constructor function
      */
-    function NineCoinToken(
+    function NineCoin(
         uint256 initialSupply,
         string tokenName,
         string tokenSymbol
@@ -166,7 +166,7 @@ contract NineCoinToken {
 /*       ADVANCED TOKEN STARTS HERE       */
 /******************************************/
 
-contract MyAdvancedToken is owned, NineCoinToken {
+contract MyAdvancedToken is owned, NineCoin {
 
     uint256 public sellPrice;
     uint256 public buyPrice;
@@ -181,7 +181,7 @@ contract MyAdvancedToken is owned, NineCoinToken {
         uint256 initialSupply,
         string tokenName,
         string tokenSymbol
-    ) NineCoinToken(initialSupply, tokenName, tokenSymbol) public {}
+    ) NineCoin(initialSupply, tokenName, tokenSymbol) public {}
 
     /* Internal transfer, only can be called by this contract */
     function _transfer(address _from, address _to, uint _value) internal {
